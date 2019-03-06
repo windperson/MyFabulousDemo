@@ -24,6 +24,8 @@
 	<string>11.4</string>
 	<key>CFBundleDisplayName</key>
 	<string>MyFabulousDemo</string>
+	<key>CFBundleIdentifier</key>
+	<string>tw.idv.windperson.demo.MyFabulousDemo</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>
@@ -32,7 +34,5 @@
 	<string>MyFabulousDemo</string>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
-	<key>CFBundleIdentifier</key>
-	<string>tw.idv.windperson.demo.MyFabulousDemo</string>
 </dict>
 </plist>
