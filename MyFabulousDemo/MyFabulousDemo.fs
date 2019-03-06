@@ -44,7 +44,8 @@ module App =
 
     let view (model: Model) dispatch =
         View.ContentPage(
-          content = View.StackLayout(padding = 20.0, verticalOptions = LayoutOptions.Center,
+          useSafeArea = true,
+          content = View.StackLayout(padding = 20.0, verticalOptions = LayoutOptions.StartAndExpand,
             children = [ 
                 View.Label(text = sprintf "%d" model.Count, horizontalOptions = LayoutOptions.Center, widthRequest=200.0, horizontalTextAlignment=TextAlignment.Center)
                 View.Button(text = "Increment", command = (fun () -> dispatch Increment), horizontalOptions = LayoutOptions.Center)
