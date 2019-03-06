@@ -15,9 +15,29 @@
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>MyFabulousDemo.iOS</AssemblyName>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <RestorePackages>true</RestorePackages>
+    <SelectedDevice>Charle’s iPhone 7+</SelectedDevice>
+    <TargetiOSDevice>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
+&lt;plist version="1.0"&gt;
+&lt;dict&gt;
+	&lt;key&gt;device&lt;/key&gt;
+	&lt;dict&gt;
+		&lt;key&gt;architecture&lt;/key&gt;
+		&lt;string&gt;ARMv6, ARMv7, ARMv7s, ARM64&lt;/string&gt;
+		&lt;key&gt;model&lt;/key&gt;
+		&lt;string&gt;iPhone9,4&lt;/string&gt;
+		&lt;key&gt;os-version&lt;/key&gt;
+		&lt;string&gt;12.1.4&lt;/string&gt;
+		&lt;key&gt;os&lt;/key&gt;
+		&lt;string&gt;iOS&lt;/string&gt;
+	&lt;/dict&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</TargetiOSDevice>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -92,14 +112,15 @@
     <CodesignKey>iPhone Distribution</CodesignKey>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
   </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.FSharp.targets" Condition="Exists('$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.FSharp.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\netstandard2.0\Xamarin.Forms.targets')" />
+  <Import Project="..\.nuget\NuGet.targets" />
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.fs" />
     <Compile Include="AppDelegate.fs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
       <Visible>false</Visible>
@@ -145,6 +166,9 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="FSharp.Core">
+      <HintPath>..\packages\FSharp.Core.4.5.4\lib\netstandard1.6\FSharp.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -163,9 +187,6 @@
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.3.4.0.1009999\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
-    <Reference Include="FSharp.Core">
-      <HintPath>..\packages\FSharp.Core.4.5.2\lib\netstandard1.6\FSharp.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Fabulous.Core">
       <HintPath>..\packages\Fabulous.Core.0.33.0\lib\netstandard2.0\Fabulous.Core.dll</HintPath>
     </Reference>
@@ -181,14 +202,9 @@
     <Reference Include="Xamarin.Essentials">
       <HintPath>..\packages\Xamarin.Essentials.0.6.0-preview\lib\monoandroid71\Xamarin.Essentials.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.FSharp.targets" Condition="Exists('$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.FSharp.targets')"/>
-  <ItemGroup>
     <ProjectReference Include="..\MyFabulousDemo\MyFabulousDemo.fsproj">
       <Project>{86D021B2-B205-45D3-B69F-A1E6E9B72898}</Project>
       <Name>MyFabulousDemo</Name>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\packages\Xamarin.Forms.3.4.0.1009999\build\netstandard2.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.3.4.0.1009999\build\netstandard2.0\Xamarin.Forms.targets')" />
-  <Import Project="..\.nuget\NuGet.targets" />
 </Project>
